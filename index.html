@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muhammad Zawad Mahmud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f2ec;
+      --bg2: #edeae2;
+      --ink: #1a1814;
+      --ink2: #4a4740;
+      --ink3: #8a8680;
+      --accent: #c0392b;
+      --accent2: #e8d5b0;
+      --line: #d4cfc6;
+      --card: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(245, 242, 236, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--ink3);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      position: relative;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      right: -2rem;
+      transform: translateY(-50%);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(8rem, 18vw, 22rem);
+      color: transparent;
+      -webkit-text-stroke: 1px var(--line);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .hero-left { position: relative; z-index: 1; }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.35s forwards;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--ink2);
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.65s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+    }
+
+    .hero-right {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0;
+      animation: fadeLeft 0.6s forwards;
+    }
+
+    .stat-card:nth-child(1) { animation-delay: 0.7s; }
+    .stat-card:nth-child(2) { animation-delay: 0.85s; margin-left: 2rem; }
+    .stat-card:nth-child(3) { animation-delay: 1s; }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 3rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--ink2);
+      line-height: 1.4;
+    }
+
+    .stat-label strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--ink);
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--bg2);
+      max-width: 100%;
+      padding: 6rem 0;
+    }
+
+    #about .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      color: var(--ink2);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .fact {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact:last-child { border-bottom: none; }
+
+    .fact-key {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 0.25rem;
+    }
+
+    .fact-val {
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5px;
+      background: var(--line);
+      border: 1.5px solid var(--line);
+    }
+
+    .research-card {
+      background: var(--card);
+      padding: 2.5rem;
+      transition: background 0.2s;
+    }
+
+    .research-card:hover {
+      background: var(--bg2);
+    }
+
+    .research-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .research-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .research-card p {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      border: 1px solid var(--line);
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--bg); }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s;
+    }
+
+    .pub-item:first-child { border-top: 1px solid var(--line); }
+
+    .pub-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      padding-top: 0.2rem;
+      white-space: nowrap;
+    }
+
+    .pub-content h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .pub-venue {
+      font-size: 0.85rem;
+      color: var(--ink3);
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+
+    .pub-status {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.6rem;
+      border: 1px solid;
+    }
+
+    .pub-status.under-review {
+      color: #d68910;
+      border-color: #d68910;
+    }
+
+    .pub-status.in-progress {
+      color: var(--ink3);
+      border-color: var(--line);
+    }
+
+    .pub-status.published {
+      color: #27ae60;
+      border-color: #27ae60;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg2); max-width: 100%; padding: 6rem 0; }
+    #experience .inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 1.5px solid var(--line);
+      margin-left: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 0.45rem;
+      margin-left: -5.75px;
+      flex-shrink: 0;
+    }
+
+    .timeline-content {
+      padding-bottom: 0.5rem;
+    }
+
+    .timeline-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-role {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      text-align: center;
+      padding: 8rem 4rem;
+      max-width: 700px;
+    }
+
+    #contact p {
+      font-size: 1.05rem;
+      color: var(--ink2);
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--line);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--ink3);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+      .hero-bg-text { display: none; }
+      .hero-right { display: none; }
+      section { padding: 4rem 1.5rem; }
+      #about .inner, #experience .inner { padding: 0 1.5rem; }
+      #about .inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pub-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      #contact { padding: 5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">MZM</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Papers</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">ML</div>
+  <div class="hero-left">
+    <div class="hero-tag">Fordham University · MS Computer Science</div>
+    <h1>Muhammad<br>Zawad <em>Mahmud</em></h1>
+    <p class="hero-sub">
+      Researcher at the intersection of Privacy-Preserving Machine Learning, Computer Vision, and Applied AI — building systems that are technically rigorous and ethically grounded.
+    </p>
+    <div class="hero-links">
+      <a href="https://scholar.google.com/citations?user=xU8qUYgAAAAJ&hl=en&oi=ao" target="_blank" class="btn btn-primary">Google Scholar ↗</a>
+      <a href="CV_Mahmud_Muhammad_Zawad.pdf" download class="btn btn-outline">Download CV ↓</a>
+      <a href="https://github.com/zawadsadat" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="https://www.linkedin.com/in/muhammad-zawad-mahmud-50a9502a0/" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">
+        <strong>Publications</strong>
+        Journals · IEEE Conferences · Preprints
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4.0</div>
+      <div class="stat-label">
+        <strong>Graduate GPA</strong>
+        MS Computer Science, Fordham University
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">
+        <strong>Years Teaching Experience</strong>
+        North South University · Green University
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="inner">
+    <div>
+      <div class="section-header" style="margin-bottom:2rem;">
+        <span class="section-num">01</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-facts">
+        <div class="fact">
+          <span class="fact-key">Position</span>
+          <span class="fact-val">MS Computer Science, Fordham University</span>
+        </div>
+        <div class="fact">
+          <span class="fact-key">Lab</span>
+          <span class="fact-val">Fordham Robotics & Computer Vision Lab (FRCVLab)</span>
+        </div>
+        <div class="fact">
+          <span class="fact-key">Fellowship</span>
+          <span class="fact-val">Tortorella Statistics for Social Justice Fellow, Summer 2026</span>
+        </div>
+        <div class="fact">
+          <span class="fact-key">Seeking</span>
+          <span class="fact-val">PhD positions in ML / Computer Vision</span>
+        </div>
+        <div class="fact">
+          <span class="fact-key">Email</span>
+          <span class="fact-val">zawadmahmud43@gmail.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="about-label">Background</div>
+      <p>
+        I am a first-year MS student in Computer Science at Fordham University and a Graduate Assistant at <strong>FRCVLab</strong>. My research sits at the intersection of privacy-preserving machine learning, federated systems, and computer vision.
+      </p>
+      <p>
+        Currently I am working on <strong>membership inference attacks against federated learning models</strong> with differential privacy defenses (DP-SGD / Opacus), and on <strong>novel view synthesis for Visual Place Recognition</strong> using GenWarp and diffusion-based inpainting — with a submission targeting BMVC 2026.
+      </p>
+      <p>
+        Before Fordham, I was a Lab Instructor and Adjunct Lecturer at <strong>North South University</strong> and <strong>Green University of Bangladesh</strong>, where I taught and designed courses across Data Structures, DBMS, and Software Engineering.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Research Interests</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="research-icon">🔒</div>
+      <h3>Privacy & Security in ML</h3>
+      <p>Studying membership inference attacks, shadow model training, and differential privacy (DP-SGD / Opacus) as defenses in federated learning settings.</p>
+      <div class="research-tags">
+        <span class="tag">Federated Learning</span>
+        <span class="tag">MIA</span>
+        <span class="tag">DP-SGD</span>
+        <span class="tag">Opacus</span>
+      </div>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">👁️</div>
+      <h3>Computer Vision</h3>
+      <p>Novel view synthesis for Visual Place Recognition — analyzing how hallucinated pixels from diffusion inpainting affect recognition performance across real-world datasets.</p>
+      <div class="research-tags">
+        <span class="tag">GenWarp</span>
+        <span class="tag">NeRF</span>
+        <span class="tag">VPR</span>
+        <span class="tag">Diffusion</span>
+      </div>
+    </div>
+    <div class="research-card">
+      <div class="research-icon">🤝</div>
+      <h3>Applied ML for Social Good</h3>
+      <p>Applying rigorous quantitative methods to community-identified challenges in equity, public health, and policy — as a Tortorella Statistics for Social Justice Fellow.</p>
+      <div class="research-tags">
+        <span class="tag">Data Ethics</span>
+        <span class="tag">Community Research</span>
+        <span class="tag">Social Justice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Publications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-list">
+
+    <!-- SUBMITTED / UNDER REVIEW -->
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <h3>Systematic Evaluation of Novel View Synthesis for Video Place Recognition</h3>
+        <div class="pub-venue">International Conference on Intelligent Robots and Systems (IROS) · <a href="https://doi.org/10.48550/arXiv.2603.05876" target="_blank" style="color:var(--accent);text-decoration:none;">arXiv Preprint ↗</a></div>
+        <span class="pub-status under-review">Submitted</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <h3>A Novel Clinical Dataset with XAI-Integrated Ensemble and Large Language Models for Interpretable Dengue Detection</h3>
+        <div class="pub-venue">Array, Elsevier (Q1, IF: 4.5)</div>
+        <span class="pub-status under-review">Under Review</span>
+      </div>
+    </div>
+
+    <!-- PUBLISHED JOURNALS -->
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <h3>Advanced Vision Transformers and Open-Set Learning for Robust Mosquito Classification: A Novel Approach to Entomological Studies</h3>
+        <div class="pub-venue">PLoS Computational Biology, vol. 20, no. 12 · <a href="https://doi.org/10.1371/journal.pcbi.1012654" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
+        <span class="pub-status published">Published</span>
+      </div>
+    </div>
+
+    <!-- PUBLISHED CONFERENCES -->
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <h3>Advance Transfer Learning Approach for Identification of Multiclass Skin Disease with LIME Explainable AI Technique</h3>
+        <div class="pub-venue">27th International Conference on Computer and Information Technology (ICCIT 2024) · <a href="https://doi.org/10.1109/iccit64611.2024.11021908" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
+        <span class="pub-status published">Published</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div class="pub-content">
+        <h3>Enhancing Multi-Class Disease Classification: Neoplasms, Cardiovascular, Nervous System, and Digestive Disorders Using Advanced LLMs</h3>
+        <div class="pub-venue">27th International Conference on Computer and Information Technology (ICCIT 2024) · <a href="https://doi.org/10.1109/iccit64611.2024.11022500" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
+        <span class="pub-status published">Published</span>
+      </div>
+    </div>
+
+    <!-- IN PREP -->
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <h3>Privacy Leakage in Federated Learning: A Membership Inference Attack Analysis with Differential Privacy Defenses</h3>
+        <div class="pub-venue">In Preparation</div>
+        <span class="pub-status in-progress">Ongoing</span>
+      </div>
+    </div>
+
+  </div>
+  <p style="margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--ink3);">
+    → Full list on <a href="https://scholar.google.com/citations?user=xU8qUYgAAAAJ&hl=en&oi=ao" target="_blank" style="color:var(--accent); text-decoration:none;">Google Scholar</a>
+  </p>
+</section>
+
+<!-- EXPERIENCE -->
+<div id="experience">
+  <div class="inner">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">2025 — Present</div>
+          <div class="timeline-role">Graduate Assistant</div>
+          <div class="timeline-org">FRCVLab, Fordham University</div>
+          <div class="timeline-desc">Conducting research in federated learning privacy and visual place recognition under Dr. Damian Lyons. Co-authoring papers for IEEE and BMVC venues.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">Summer 2026</div>
+          <div class="timeline-role">Tortorella Research Fellow</div>
+          <div class="timeline-org">Tortorella Statistics for Social Justice Initiative, Fordham</div>
+          <div class="timeline-desc">Applying ML and statistical methods to community-identified social justice research questions in partnership with local organizations.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">2022 — 2024</div>
+          <div class="timeline-role">Lab Instructor · Adjunct Lecturer</div>
+          <div class="timeline-org">North South University · Green University of Bangladesh</div>
+          <div class="timeline-desc">Designed and delivered theory and lab courses including Data Structures, DBMS, Software Engineering, and Structured Programming for undergraduate students.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">2020 — 2022</div>
+          <div class="timeline-role">Undergraduate & Graduate Teaching Assistant</div>
+          <div class="timeline-org">Dept. of Mathematics & Physics, North South University</div>
+          <div class="timeline-desc">Assisted nine faculty members in pre-calculus, linear algebra, and calculus courses.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" style="max-width:700px; margin:0 auto;">
+  <div class="section-header" style="justify-content:center;">
+    <span class="section-num">05</span>
+    <h2>Get in Touch</h2>
+  </div>
+  <p>I am open to research collaborations, PhD opportunities, and conversations about ML, privacy, and computer vision. Feel free to reach out.</p>
+  <div class="contact-links">
+    <a href="mailto:zawadmahmud43@gmail.com" class="btn btn-primary">Email Me</a>
+    <a href="https://scholar.google.com/citations?user=xU8qUYgAAAAJ&hl=en&oi=ao" target="_blank" class="btn btn-outline">Google Scholar ↗</a>
+    <a href="https://github.com/zawadsadat" target="_blank" class="btn btn-outline">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/muhammad-zawad-mahmud-50a9502a0/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Muhammad Zawad Mahmud · Fordham University
+</footer>
+
+</body>
+</html>
