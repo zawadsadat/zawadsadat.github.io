@@ -586,7 +586,7 @@
     <div class="hero-tag">Fordham University · MS Computer Science</div>
     <h1>Muhammad<br>Zawad <em>Mahmud</em></h1>
     <p class="hero-sub">
-      Researcher at the intersection of Visual Place Recognition, Novel View Synthesis, Generative Models for Vision, and Machine Learning Security.
+      Researcher at the intersection of Privacy-Preserving Machine Learning, Computer Vision, Agentic AI, and Applied AI — building systems that are technically rigorous and ethically grounded.
     </p>
     <div class="hero-links">
       <a href="https://scholar.google.com/citations?user=xU8qUYgAAAAJ&hl=en&oi=ao" target="_blank" class="btn btn-primary">Google Scholar ↗</a>
@@ -596,13 +596,6 @@
     </div>
   </div>
   <div class="hero-right">
-    <div class="stat-card">
-      <div class="stat-num">4.0</div>
-      <div class="stat-label">
-        <strong>Graduate GPA</strong>
-        MS Computer Science, Fordham University
-      </div>
-    </div>
     <div class="stat-card">
       <div class="stat-num">10+</div>
       <div class="stat-label">
@@ -650,10 +643,10 @@
     <div class="about-text">
       <div class="about-label">Background</div>
       <p>
-        I am a MS student in Computer Science at Fordham University and a Graduate Assistant at <strong>Dept. of Computer and Information Science</strong>. My research sits at the intersection of visual place recognition, novel view synthesis, generative models for vision, and machine learning security.
+        I am a first-year MS student in Computer Science at Fordham University and a Graduate Assistant at <strong>Dept. of Computer and Information Science (RH)</strong>. My research sits at the intersection of privacy-preserving machine learning, computer vision, and agentic AI.
       </p>
       <p>
-        Currently I am working on hallucination-aware multi-view fusion for Visual Place Recognition (under review at <strong>Information Fusion</strong>), synthetic novel-view augmentation for VPR (under review at <strong>Pattern Recognition Letters</strong>), and membership privacy auditing in federated learning via membership inference attacks with DP-SGD defenses (under review at <strong>ACM TAISAP</strong>).
+        I am currently working on two active projects. The first is an <strong>opportunity-aware evaluation framework for Visual Place Recognition</strong>, developing a budgeted reference-map selection method that disentangles representation robustness from gallery coverage. The second is an <strong>LLM-agent system for autonomous drone building inspection</strong>, targeting edge-AI deployment under real-world storage, bandwidth, and power constraints — in collaboration with Dr. Rahouti and IBM, targeting the IEEE Internet of Things Journal. See the Publications section for my submitted and accepted papers.
       </p>
       <p>
         Before Fordham, I was a Lab Instructor and Adjunct Lecturer at <strong>North South University</strong> and <strong>Green University of Bangladesh</strong>, where I taught and designed courses across Data Structures, DBMS, and Software Engineering.
@@ -671,42 +664,41 @@
   </div>
   <div class="research-grid">
     <div class="research-card">
-      <div class="research-icon">👁️</div>
-      <h3>Visual Place Recognition</h3>
-      <p>Developing hallucination-aware view augmentation pipelines and evaluating how synthetic novel views affect VPR retrieval under viewpoint and appearance shift.</p>
+      <div class="research-icon">🤖</div>
+      <h3>Agentic AI</h3>
+      <p>Designing LLM-agent systems that operate under real-world constraints — including an autonomous drone inspection pipeline where an on-board agent makes adaptive decisions about image storage, compression, and transmission under limited storage, bandwidth, and power budgets.</p>
       <div class="research-tags">
-        <span class="tag">VPR</span>
-        <span class="tag">GenWarp</span>
-        <span class="tag">Novel View Synthesis</span>
-        <span class="tag">Diffusion</span>
+        <span class="tag">LLM Agents</span>
+        <span class="tag">Edge AI</span>
+        <span class="tag">Drone Inspection</span>
+        <span class="tag">IoT</span>
       </div>
     </div>
     <div class="research-card">
-      <div class="research-icon">🎨</div>
-      <h3>Generative Models for Vision</h3>
-      <p>Applying foundation models and diffusion-based inpainting to 3D scene understanding — with a focus on detecting and filtering hallucinated regions in synthesized views.</p>
+      <div class="research-icon">👁️</div>
+      <h3>Computer Vision</h3>
+      <p>Opportunity-aware evaluation for Visual Place Recognition — disentangling representation robustness from reference-map coverage, with a budgeted map-selection method based on query-distribution priors.</p>
       <div class="research-tags">
+        <span class="tag">VPR</span>
+        <span class="tag">Novel View Synthesis</span>
         <span class="tag">Foundation Models</span>
-        <span class="tag">NeRF</span>
-        <span class="tag">Gaussian Splatting</span>
-        <span class="tag">Inpainting</span>
+        <span class="tag">Diffusion</span>
       </div>
     </div>
     <div class="research-card">
       <div class="research-icon">🔒</div>
       <h3>Machine Learning Security</h3>
-      <p>Auditing privacy leakage in federated learning via membership inference attacks and differential privacy defenses (DP-SGD / Opacus) across medical datasets.</p>
+      <p>Investigating attack surfaces in ML pipelines — from near-duplicate deduplication substitution attacks on LLM pretraining data (IEEE BigData 2026) to membership privacy auditing across federated medical learning systems with DP-SGD defenses (SN Computer Science).</p>
       <div class="research-tags">
-        <span class="tag">Federated Learning</span>
+        <span class="tag">Data Poisoning</span>
         <span class="tag">MIA</span>
+        <span class="tag">Federated Learning</span>
         <span class="tag">DP-SGD</span>
-        <span class="tag">Privacy Auditing</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="section-header">
@@ -716,81 +708,95 @@
   </div>
   <div class="pub-list">
 
-    <!-- SUBMITTED / UNDER REVIEW -->
+    <!-- UNDER REVIEW -->
     <div class="pub-item">
       <div class="pub-year">2026</div>
       <div class="pub-content">
         <h3>Hallucination-Aware Multi-View Fusion with Foundation Models: Robust Learning from Low-Quality Synthetic Views</h3>
-        <div class="pub-venue">Information Fusion</div>
+        <div class="pub-venue">Information Fusion, Elsevier</div>
         <span class="pub-status under-review">Under Review</span>
       </div>
     </div>
+
+    <!-- PREPRINT -->
     <div class="pub-item">
       <div class="pub-year">2026</div>
       <div class="pub-content">
-        <h3>Understanding the Impact of Synthetic Novel-View Augmentation on Visual Place Recognition</h3>
-        <div class="pub-venue">Pattern Recognition Letters</div>
-        <span class="pub-status under-review">Under Review</span>
+        <h3>Evaluating Place-Discriminative Representations in Synthetic Novel Views</h3>
+        <div class="pub-venue">arXiv Preprint</div>
+        <span class="pub-status under-review">Preprint</span>
       </div>
     </div>
+
+    <!-- ACCEPTED -->
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <h3>Survivor Takes All: Keep-Rule Substitution Attacks on Near-Duplicate Deduplication in LLM Pretraining</h3>
+        <div class="pub-venue">IEEE International Conference on Big Data 2026 · Privacy and Security of Big Data Special Session</div>
+        <span class="pub-status published">Accepted</span>
+      </div>
+    </div>
+
+    <!-- UNDER REVIEW -->
     <div class="pub-item">
       <div class="pub-year">2026</div>
       <div class="pub-content">
         <h3>Membership Privacy Auditing for Machine Learning: Selection-Aware Multi-Attack Evaluation and DP-SGD Analysis</h3>
-        <div class="pub-venue">ACM Transactions on AI Security and Privacy</div>
+        <div class="pub-venue">SN Computer Science, Springer</div>
         <span class="pub-status under-review">Under Review</span>
       </div>
     </div>
+
+    <!-- UNDER REVIEW -->
     <div class="pub-item">
-      <div class="pub-year">2026</div>
+      <div class="pub-year">2027</div>
       <div class="pub-content">
-        <h3>FairRate: A Practical and Fair Reputation Update Pipeline for Ride-Hailing Platforms</h3>
-        <div class="pub-venue">IEEE Intelligent Transportation Systems Magazine (Q1, IF: 5.0)</div>
+        <h3>FairRate: Examining Responsibility and Rating Correction in Ride-Hailing Reputation Systems</h3>
+        <div class="pub-venue">ACM Conference on Fairness, Accountability, and Transparency (FAccT) 2027</div>
         <span class="pub-status under-review">Under Review</span>
-      </div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2026</div>
-      <div class="pub-content">
-        <h3>Interpretable Dengue Detection Using XAI-Integrated Ensemble and Large Language Models on a Reduced-Feature Clinical Dataset</h3>
-        <div class="pub-venue">Array, vol. 31, pp. 101120 · <a href="https://doi.org/10.1016/j.array.2026.101120" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
-        <span class="pub-status published">Published</span>
       </div>
     </div>
 
     <!-- PUBLISHED JOURNALS -->
     <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <h3>Interpretable Dengue Detection Using XAI-Integrated Ensemble and Large Language Models on a Reduced-Feature Clinical Dataset</h3>
+        <div class="pub-venue">Array, Elsevier, vol. 31, art. 101120 · <a href="https://doi.org/10.1016/j.array.2026.101120" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
+        <span class="pub-status published">Published</span>
+      </div>
+    </div>
+    <div class="pub-item">
       <div class="pub-year">2024</div>
       <div class="pub-content">
         <h3>Advanced Vision Transformers and Open-Set Learning for Robust Mosquito Classification: A Novel Approach to Entomological Studies</h3>
-        <div class="pub-venue">PLoS Computational Biology, vol. 20, no. 12 · <a href="https://doi.org/10.1371/journal.pcbi.1012654" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
+        <div class="pub-venue">PLoS Computational Biology, vol. 20, no. 12, e1012654 · <a href="https://doi.org/10.1371/journal.pcbi.1012654" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
         <span class="pub-status published">Published</span>
       </div>
     </div>
 
-    <!-- PUBLISHED CONFERENCES -->
+    <!-- ONGOING PROJECTS -->
     <div class="pub-item">
-      <div class="pub-year">2024</div>
+      <div class="pub-year">2027</div>
       <div class="pub-content">
-        <h3>Advance Transfer Learning Approach for Identification of Multiclass Skin Disease with LIME Explainable AI Technique</h3>
-        <div class="pub-venue">27th International Conference on Computer and Information Technology (ICCIT 2024) · <a href="https://doi.org/10.1109/iccit64611.2024.11021908" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
-        <span class="pub-status published">Published</span>
+        <h3>Opportunity-Aware Evaluation of Visual Place Recognition: Budgeted Reference-Map Selection Under Query Priors</h3>
+        <div class="pub-venue">In Preparation · Targeting ICCV 2027 / RA-L</div>
+        <span class="pub-status in-progress">Ongoing</span>
       </div>
     </div>
     <div class="pub-item">
-      <div class="pub-year">2024</div>
+      <div class="pub-year">2027</div>
       <div class="pub-content">
-        <h3>Enhancing Multi-Class Disease Classification: Neoplasms, Cardiovascular, Nervous System, and Digestive Disorders Using Advanced LLMs</h3>
-        <div class="pub-venue">27th International Conference on Computer and Information Technology (ICCIT 2024) · <a href="https://doi.org/10.1109/iccit64611.2024.11022500" target="_blank" style="color:var(--accent);text-decoration:none;">DOI ↗</a></div>
-        <span class="pub-status published">Published</span>
+        <h3>LLM-Agent Drone Inspection Under Storage, Bandwidth, and Power Constraints</h3>
+        <div class="pub-venue">In Preparation · Targeting IEEE Internet of Things Journal</div>
+        <span class="pub-status in-progress">Ongoing</span>
       </div>
     </div>
-
-    <!-- IN PREP / SUBMITTED -->
 
   </div>
   <p style="margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--ink3);">
-    → Full list on <a href="https://scholar.google.com/citations?user=xU8qUYgAAAAJ&hl=en&oi=ao" target="_blank" style="color:var(--accent); text-decoration:none;">Google Scholar</a> · <a href="CV_Mahmud_Muhammad_Zawad.pdf" download style="color:var(--accent); text-decoration:none;">Download CV ↓</a>
+    → Full list on <a href="https://scholar.google.com/citations?user=xU8qUYgAAAAJ&hl=en&oi=ao" target="_blank" style="color:var(--accent); text-decoration:none;">Google Scholar</a>
   </p>
 </section>
 
@@ -806,19 +812,10 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <div class="timeline-period">2026 — Present</div>
-          <div class="timeline-role">Graduate Teaching Assistant</div>
-          <div class="timeline-org">Dept. of Computer and Information Science, Fordham University</div>
-          <div class="timeline-desc">Supporting undergraduate instruction in the department alongside ongoing research duties.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
           <div class="timeline-period">2025 — Present</div>
-          <div class="timeline-role">Graduate Research Assistant</div>
-          <div class="timeline-org">Dept. of Computer and Information Science, Fordham University</div>
-          <div class="timeline-desc">First-author research on hallucination-aware view augmentation for Visual Place Recognition and privacy auditing in federated learning. Advisors: Dr. Mohamed Rahouti, Dr. Damian Lyons.</div>
+          <div class="timeline-role">Graduate Assistant</div>
+          <div class="timeline-org">Dept. of Computer and Information Science (RH), Fordham University</div>
+          <div class="timeline-desc">Conducting research in generative AI and visual place recognition under Dr. Damian Lyons.</div>
         </div>
       </div>
       <div class="timeline-item">
